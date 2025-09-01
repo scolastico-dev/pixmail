@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      AUTH_DISABLED: true
+    ports:
+      - "4000:4000"
