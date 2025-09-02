@@ -1,0 +1,8 @@
+services:
+  app:
+    image: ghcr.io/scolastico-dev/pixmail:nightly
+    environment:
+      AUTH_DISABLED: true
+      DB_SQLITE_ENABLED: true
+    ports:
+      - "4000:4000"
