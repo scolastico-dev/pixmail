@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_SQLITE_ENABLED: ${DB_SQLITE_ENABLED:true}
+      DB_SQLITE_FILE_PATH: ${DB_SQLITE_FILE_PATH:/data/database.sqlite}
+      LOGS_DELETE_OLD_AFTER: ${LOGS_DELETE_OLD_AFTER:-}
+      DEFAULT_PIXEL_IMAGE: ${DEFAULT_PIXEL_IMAGE:-}
+      AUTH_DISABLED: ${AUTH_DISABLED:false}
+      AUTH_TOKEN: ${AUTH_TOKEN:-}
+      AUTH_CLIENT_ID: ${AUTH_CLIENT_ID:-}
+      AUTH_CLIENT_SECRET: ${AUTH_CLIENT_SECRET:-}
+      OIDC_ISSUER_URL: ${OIDC_ISSUER_URL:-}
+      OAUTH2_TOKEN_URL: ${OAUTH2_TOKEN_URL:-}
+      OAUTH2_AUTH_URL: ${OAUTH2_AUTH_URL:-}
+      OAUTH2_USER_INFO_URL: ${OAUTH2_USER_INFO_URL:-}
+      OAUTH2_SCOPE: ${OAUTH2_SCOPE:-}
+      TRUST_PROXY: ${TRUST_PROXY:true}
+      GDPR_COMPLIANCE: ${GDPR_COMPLIANCE:true}
+    volumes:
+      - data:/data
+    ports:
+      - "4000:4000"
+
+volumes:
+  data:
