@@ -4,5 +4,8 @@ services:
     environment:
       AUTH_DISABLED: true
       DB_SQLITE_ENABLED: true
+      DB_SQLITE_FILE_PATH: /data/sqlite.db
+    volumes:
+      - data:/data
     ports:
       - "4000:4000"
