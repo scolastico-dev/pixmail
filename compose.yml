@@ -4,6 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      AUTH_DISABLED: true
+      AUTH_TOKEN: test
+      DB_SQLITE_ENABLED: true
     ports:
       - "4000:4000"

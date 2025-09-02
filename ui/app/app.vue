@@ -10,7 +10,7 @@
           <p v-else>No Pixels Found</p>
         </div>
         <template v-if="showPixels">
-          <pixel v-for="p in pixels" :key="p.id" :data="p" @deleted="refreshData"/>
+          <pixel v-for="p in pixels" :key="p.id" :data="p" @refresh="refreshData"/>
         </template>
       </card>
       <card>

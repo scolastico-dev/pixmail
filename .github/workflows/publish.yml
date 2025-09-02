@@ -18,6 +18,9 @@ jobs:
       - name: Replace version in package.json to be semver compatible
         run: sed -i "s/IN-DEV/$(echo $GITHUB_REF | sed 's/refs\/tags\///')/" package.json
 
+      - name: Replace version in addons/thunderbird/manifest.json to be semver compatible
+        run: sed -i "s/IN-DEV/$(echo $GITHUB_REF | sed 's/refs\/tags\///')/" addons/thunderbird/manifest.json
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -38,3 +41,12 @@ jobs:
           platform: linux/amd64,linux/arm64
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build addons
+        run: ./addons/build.sh
+
+      - name: Upload thunderbird addon to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./addons/dist/thunderbird.xpi
+          token: ${{ secrets.GITHUB_TOKEN }}

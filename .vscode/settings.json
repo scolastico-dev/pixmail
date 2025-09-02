@@ -8,9 +8,10 @@
     "editor.action.formatDocument": "always"
   },
   "css.customData": [".vscode/tailwind.json"],
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsdk": "api/node_modules/typescript/lib",
   "cSpell.words": [
     "axios",
+    "Joschua",
     "nuxtjs",
     "pixmail",
     "scolastico"

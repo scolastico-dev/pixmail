@@ -19,7 +19,7 @@ WORKDIR /app
 
 COPY --from=build-api-stage /app/dist .
 COPY --from=build-api-stage /app/node_modules ./node_modules
-COPY --from=build-ui-stage /app/.output ./public
+COPY --from=build-ui-stage /app/.output/public ./public
 COPY LICENSE .
 
 EXPOSE 4000
@@ -28,6 +28,6 @@ LABEL org.opencontainers.image.source=https://github.com/scolastico-dev/pixmail
 LABEL org.opencontainers.image.title="pixmail"
 LABEL org.opencontainers.image.description="Pixmail is your email tracking solution."
 LABEL org.opencontainers.image.authors="Joschua Becker EDV <support@scolasti.co>"
-STOPSIGNAL SIGINT
+STOPSIGNAL SIGKILL
 
 CMD ["node", "src/main.js"]

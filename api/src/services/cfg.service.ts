@@ -9,6 +9,7 @@ export class CfgService {
   /** @hidden */
   constructor() {
     if (this.authDisabled) return;
+    if (this.authToken) return;
     if (!this.authClientId || !this.authClientSecret)
       throw new Error('Missing AUTH_CLIENT_ID or AUTH_CLIENT_SECRET');
     if (this.oidcIssuerUrl) return;
@@ -109,6 +110,13 @@ export class CfgService {
   readonly authDisabled = $bool('AUTH_DISABLED', false);
 
   /**
+   * Auth token used for static authentication, if empty will be disabled
+   * @example AUTH_TOKEN=supersecret
+   * @default ''
+   */
+  readonly authToken = $str('AUTH_TOKEN', '');
+
+  /**
    * The auth (oidc or oauth2) client id
    * @example AUTH_CLIENT_ID=supersecret
    */
@@ -154,4 +162,18 @@ export class CfgService {
    * @default 'openid'
    */
   readonly oAuth2Scope = $str('OAUTH2_SCOPE', 'openid');
+
+  /**
+   * Trust proxy headers
+   * @example TRUST_PROXY=false
+   * @default true
+   */
+  readonly trustProxy = $bool('TRUST_PROXY', true);
+
+  /**
+   * GDPR compliance mode. Anonymizes user data.
+   * @example GDPR_COMPLIANCE=false
+   * @default true
+   */
+  readonly gdprCompliance = $bool('GDPR_COMPLIANCE', true);
 }

@@ -23,11 +23,13 @@ export class TrackingController {
     const pixel = await this.db.getPixel(id.split('.')[0]);
     await this.db.addLog({
       id: randomUUID(),
-      ip: res.req.ip,
+      ip: this.cfg.gdprCompliance ? 'n/a' : res.req.ip,
       label: pixel ? pixel.label : null,
       pixel: pixel ? pixel.id : null,
       timestamp: Math.floor(Date.now() / 1000),
-      user_agent: res.req.headers['user-agent'] || 'unknown',
+      user_agent: this.cfg.gdprCompliance
+        ? 'n/a'
+        : res.req.headers['user-agent'] || 'unknown',
     });
     const image = pixel ? pixel.img : this.cfg.defaultPixelImage;
     const data = await axios.get(image, {

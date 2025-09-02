@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "pixmail",
+  "version": "IN-DEV",
+  "description": "Pixmail is your email tracking solution.",
+  "author": "Joschua Becker EDV <support@scolasti.co>",
+  "permissions": [
+    "compose",
+    "storage",
+    "menus"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "compose_action": {
+    "default_icon": "icons/pixmail-64.png",
+    "default_title": "Add Tracking Pixel"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pixmail@scolasti.co",
+      "strict_min_version": "78.0"
+    }
+  },
+  "icons": {
+    "64": "icons/pixmail-64.png"
+  }
+}

@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import axios from 'axios';
 
-const emit = defineEmits(['deleted']);
+const emit = defineEmits(['refresh']);
 
 const props = defineProps<{
   data: any;
@@ -27,7 +27,7 @@ const pixelUrl = computed(() => {
 async function handleDel() {
   if (confirm('Are you sure you want to delete this pixel?')) {
     await axios.delete(`/pixel/${props.data.id}`);
-    emit('deleted');
+    emit('refresh');
   }
 }
 </script>
