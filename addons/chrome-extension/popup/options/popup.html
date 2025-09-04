@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixmail Einstellungen</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="options-body">
+<h1>Pixmail Einstellungen</h1>
+
+<div class="form-group">
+    <label for="apiUrl">API Base URL:</label>
+    <input type="text" id="apiUrl" placeholder="https://api.beispiel.de">
+</div>
+
+<div class="form-group">
+    <label for="apiToken">API Token (Bearer):</label>
+    <input type="text" id="apiToken" placeholder="Dein_geheimes_Token">
+</div>
+
+<div class="form-group">
+    <label for="defaultImageUrl">Standard Picture-URL:</label>
+    <input type="text" id="defaultImageUrl">
+</div>
+
+<button id="save">Save settings</button>
+<div id="status"></div>
+
+<script src="./popup.js"></script>
+</body>
+</html>

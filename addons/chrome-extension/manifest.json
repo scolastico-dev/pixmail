@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "pixmail",
+  "version": "0.0.1",
+  "description": "Pixmail is your email tracking solution.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Fresh Chrome Extension boilerplate 3.1.0",
+    "default_popup": "popup/main/popup.html"
+  },
+  "options_page": "popup/options/popup.html",
+  "permissions": [
+    "storage",
+    "clipboardWrite"
+  ]
+}

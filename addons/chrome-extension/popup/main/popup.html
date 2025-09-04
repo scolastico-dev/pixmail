@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+    <title>Pixmail</title>
+</head>
+<body>
+<div class="btn-list">
+    <button class="btn btn-create">Create pixel</button>
+    <button class="btn btn-settings">Settings</button>
+</div>
+
+<hr>
+
+<details>
+    <summary><b class="history-header">Active pixels</b></summary>
+    <div id="active-pixels-list" class="history-list">
+        <div class="history pseudo-history">
+            No pixels found, check settings maybe.
+        </div>
+    </div>
+</details>
+
+<details>
+    <summary><b class="history-header">History</b></summary>
+    <div id="log-history-list" class="history-list">
+        <div class="history pseudo-history">
+            No logs founds, check settings maybe.
+        </div>
+    </div>
+</details>
+
+<script src="./popup.js"></script>
+</body>
+</html>
