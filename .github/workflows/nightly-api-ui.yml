@@ -1,4 +1,4 @@
-name: Build and Publish Nightly
+name: Build and Publish API and UI Nightly
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
     paths-ignore:
       - ".vscode/**"
       - "README.md"
+      - "addons/**"
 
 jobs:
   build:
@@ -35,12 +36,3 @@ jobs:
           addLatest: false
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build addons
-        run: ./addons/build.sh
-
-      - name: Upload addon artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: addon
-          path: ./addons/dist

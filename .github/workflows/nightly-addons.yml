@@ -1,0 +1,30 @@
+name: Build and Publish Addons Nightly
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - ".vscode/**"
+      - "README.md"
+      - "api/**"
+      - "ui/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Build addons
+        run: ./addons/build.sh
+
+      - name: Upload addon artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: addon
+          path: ./addons/dist

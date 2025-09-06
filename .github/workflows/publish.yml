@@ -50,3 +50,9 @@ jobs:
         with:
           files: ./addons/dist/thunderbird.xpi
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload chrome addon to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./addons/dist/chrome.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
